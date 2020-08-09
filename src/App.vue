@@ -1,32 +1,64 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <Header></Header>
+    <main>
+      <router-view />
+    </main>
+    <Footer></Footer>
   </div>
 </template>
+<script>
+import Header from "../src/components/Header";
+import Footer from "../src/components/Footer";
+export default {
+  name: "App",
+  components: {
+    Header,
+    Footer
+  }
+};
+</script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
 }
 
-#nav {
-  padding: 30px;
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+body {
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  border: 7px solid #000;
+  box-shadow: inset 0 0 2.5px 2px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 3px;
+}
+
+main {
+  height: 100%;
 }
 </style>
