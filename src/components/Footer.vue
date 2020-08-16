@@ -43,20 +43,24 @@ footer {
     background-color: #ffb7c5;
     border-radius: 50%;
     position: relative;
-    display: flex;
     cursor: pointer;
-    transition: all 1s;
+    transition: all 1s ease-in-out;
     margin-right: 5px;
 
     &:hover {
       transform: rotateX(180deg);
     }
+    & a {
+      height: 100%;
+      width: 100%;
+    }
 
     & i {
       color: #fff;
       position: absolute;
-      left: 35%;
-      top: 35%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       font-size: 3rem;
     }
   }

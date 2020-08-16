@@ -172,7 +172,7 @@
             <i class="fas fa-envelope-open-text"></i>
           </div>
           <p>
-            <a>mbyto@gmail.com</a>
+            <a>hello@mbyto.co.uk</a>
           </p>
         </div>
         <div class="contact__mobile">
@@ -348,7 +348,7 @@ $grey: #787878;
 }
 
 .price__container {
-  height: 80vh;
+  height: 85vh;
   background-color: $white;
   position: relative;
   display: flex;

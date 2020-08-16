@@ -1,6 +1,7 @@
 <template>
   <div class="services">
     <section>
+      <!----------------BANNER--------------------->
       <div class="image__container">
         <img src="../assets/img/maintenance.png" alt="maintenance" />
         <h2>Services</h2>
@@ -9,37 +10,59 @@
         <i class="far fa-window-restore posi white"></i>
       </div>
       <div class="details__container">
-        <div class="details">
-          <img src="../assets/img/pc-maintenance.jpg" alt="pc" />
-          <div class="details__text">
-            <h1>PC Maintenance</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, ab at quis eos ipsam a totam, delectus tenetur quia unde ad repudiandae, numquam corrupti optio dolorem. Enim est repudiandae molestiae nobis non quo officia consectetur cumque explicabo velit laudantium, aspernatur autem, praesentium similique qui? Fugit eligendi atque iste placeat explicabo, eius rerum quidem. Quam, vitae soluta? Excepturi nihil aliquam itaque et est vero mollitia deleniti ratione, natus optio hic ea expedita officia iusto minima, fuga repellendus minus! Consequuntur, magnam. Quas!</p>
-          </div>
-          <div class="image__grid">
-            <div></div>
-          </div>
+        <!-----------COMPONENTS-------------------->
+
+        <div v-if="selected === 0">
+          <Pcmain></Pcmain>
         </div>
+        <div v-if="selected === 1">
+          <Pcrepair></Pcrepair>
+        </div>
+        <div v-if="selected === 2">
+          <Website></Website>
+        </div>
+
+        <!-----------NAVIGATION-------------------->
         <div class="navigation">
           <div class="navigation__div">
-            <h2>Solutions for you or your business</h2>
-            <ul class="navigation__list">
-              <li class="navigation__disc">
-                <span class="navigation__disc-i"></span>Pc Maintenance
-              </li>
-              <li class="navigation__disc">
-                <span class="navigation__disc-i" id="spec"></span>Pc/Laptop Repair
-              </li>
-              <li class="navigation__disc">
-                <span class="navigation__disc-i"></span>Landing Pages
-              </li>
-            </ul>
+            <div>
+              <h2>Solutions for you or your business</h2>
+              <ul class="navigation__list">
+                <li
+                  class="navigation__disc"
+                  :class="{ active: selected === 0 }"
+                  @click="selected = 0"
+                >
+                  <span class="navigation__disc-i" :class="{ off: selected === 0 }"></span>Pc Maintenance
+                </li>
+                <li
+                  class="navigation__disc"
+                  :class="{ active: selected === 1 }"
+                  @click="selected = 1"
+                >
+                  <span class="navigation__disc-i" :class="{ off: selected === 1 }"></span>Pc/Laptop Repair
+                </li>
+                <li
+                  class="navigation__disc"
+                  :class="{ active: selected === 2 }"
+                  @click="selected = 2"
+                >
+                  <span class="navigation__disc-i" :class="{ off: selected === 2 }"></span>Landing Pages
+                </li>
+              </ul>
+            </div>
           </div>
+          <!-----------LOGO------------------------>
+          <div>
+            <img src="../assets/logo.png" />
+          </div>
+          <!----------CONTACT---------------------->
           <div class="contact">
             <div class="contact__help">
               <div>
                 <img src="../assets/img/avatar.jpg" alt="avatar" />
               </div>
-              <p>Freel free to contact us, we are happy to help you!</p>
+              <p>Feel free to contact us, we are happy to help you!</p>
               <small>
                 Mark Bran,
                 <span>Software Engineer</span>
@@ -70,11 +93,21 @@
 </template>
 
 <script>
+import Pcmain from "../components/PcMaintenance";
+import Pcrepair from "../components/PcRepair";
+import Website from "../components/Website";
+
 export default {
   name: "Services",
+  components: {
+    Pcmain,
+    Pcrepair,
+    Website
+  },
   data() {
     return {
-      result: 0
+      result: 0,
+      selected: 0
     };
   },
   watch: {
@@ -130,7 +163,7 @@ export default {
 
 <style lang="scss" scoped>
 .services {
-  height: 150vh;
+  height: 310vh;
 }
 
 .image__container {
@@ -187,39 +220,19 @@ export default {
 
 .details__container {
   display: flex;
-  width: 85%;
-  height: 100%;
+  width: 80%;
   margin: -5px auto;
 }
 
-.details {
-  justify-self: flex-start;
-  height: 100%;
-  width: 70%;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  & img {
-    width: 97%;
-    border-radius: 5px;
-  }
-  &__text {
-    & h1 {
-      font-size: 3rem;
-      text-transform: uppercase;
-      margin: 2rem 0;
-    }
-    & p {
-      width: 97%;
-      font-size: 2rem;
-    }
-  }
-}
-
+/*******Navigation *********/
 .navigation {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 4rem;
-  width: 50%;
+  padding-left: 2rem;
+  padding-top: 4rem;
+  height: 254vh;
+  width: 70%;
 
   & h2 {
     font-size: 3rem;
@@ -228,17 +241,19 @@ export default {
 
   &__list {
     list-style-type: none;
-    margin: 2rem 0;
+    margin: 3rem 0;
   }
   &__disc {
-    width: 50%;
-    font-size: 2.5rem;
-    line-height: 6rem;
-    font-weight: 500;
+    width: 60%;
+    color: #787878;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    font-size: 2.5rem;
+    line-height: 5rem;
+    font-weight: 800;
+    transition: all 0.3s ease-in-out;
     height: 50%;
-    margin: 2rem 0;
+    margin: 3rem 0;
+    padding: 0 0.5rem;
 
     &:hover &-i {
       animation: up 1s ease-in-out;
@@ -246,7 +261,7 @@ export default {
 
     &-i {
       display: inline-block;
-      height: 1.8rem;
+      height: 2rem;
       width: 5px;
       background-color: #ffb7c5;
       margin-right: 3rem;
@@ -268,41 +283,48 @@ export default {
 
     & img {
       display: block;
-      width: 13rem;
-      height: 13rem;
-      margin-left: 5rem;
+      width: 17rem;
+      height: 17rem;
+      margin-left: 1rem;
       border-radius: 10px;
       margin-bottom: 3rem;
+      box-shadow: 5px 1rem 1rem rgba(0, 0, 0, 0.5);
     }
 
     & p {
-      font-size: 1.8rem;
+      font-size: 2rem;
       margin-top: 1rem;
       margin-bottom: 3rem;
-      width: 75%;
+      width: 90%;
       transform: skewY(-5deg);
     }
 
     & small {
       margin-top: 4rem;
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       font-weight: 800;
     }
     & span {
       color: #ffb7c5;
+      font-size: 1.8rem;
     }
   }
   &__free {
-    width: 80%;
+    width: 100%;
     margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     & h2 {
+      font-size: 2.5rem;
       text-transform: uppercase;
       font-weight: 500;
-      margin-bottom: 10rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
   }
   &__consul {
+    margin-top: 15rem;
     & p:nth-child(1) {
       font-size: 1.8rem;
       text-transform: uppercase;
@@ -321,7 +343,7 @@ export default {
       }
 
       & p {
-        font-size: 2rem;
+        font-size: 1.8rem;
         font-weight: 800;
       }
     }
@@ -348,7 +370,7 @@ export default {
       }
 
       & p {
-        font-size: 2rem;
+        font-size: 1.8rem;
         font-weight: 800;
       }
     }
@@ -431,5 +453,15 @@ export default {
     transform: translateY(0);
     transfrom: scale(1);
   }
+}
+
+.active {
+  box-shadow: 1rem 1rem 1rem (rgba(0, 0, 0, 0.5));
+  background: #ffb7c5;
+  color: white;
+}
+
+.off {
+  opacity: 0;
 }
 </style>

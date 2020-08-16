@@ -1,5 +1,15 @@
 <template>
   <header>
+    <div class="header__up">
+      <div>
+        <i class="fas fa-paper-plane"></i>
+        <a href="mailto:hello@mbyto.co.uk">hello@mbyto.co.uk</a>
+      </div>
+      <div>
+        <i class="fas fa-mobile-alt"></i>
+        <a href="tel:07590248919">07590248919</a>
+      </div>
+    </div>
     <div class="nav-div">
       <nav>
         <div class="nav-div-top">
@@ -45,7 +55,7 @@ $white: #fff;
 
 header {
   background-color: #272829;
-  height: 20vh;
+  height: 24vh;
 }
 
 li {
@@ -59,6 +69,34 @@ hr {
   float: right;
   border-color: rgba($black, 0.5);
   margin-bottom: 1rem;
+}
+
+.header__up {
+  display: flex;
+  width: 35%;
+  margin: 0 auto;
+  padding-top: 1rem;
+  justify-content: space-between;
+
+  & div {
+    background-color: rgba($white, 0.2);
+    border-radius: 2rem;
+    padding: 5px 2rem;
+
+    & i {
+      color: $black;
+      font-size: 1.6rem;
+      margin-right: 8px;
+    }
+
+    & a {
+      color: $white;
+      text-decoration: none;
+      font-size: 1.6rem;
+      font-weight: 800;
+      text-shadow: 2px 4px 2px rgba($black, 0.3);
+    }
+  }
 }
 
 .active {
