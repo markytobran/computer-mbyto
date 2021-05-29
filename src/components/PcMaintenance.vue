@@ -3,16 +3,48 @@
   <div class="details">
     <img src="../assets/img/pc-maintenance.jpg" alt="pc" />
     <div class="details__text">
-      <h1>PC Maintenance</h1>
-      <p>It is hard to imagine our lives without computers. For most of us, the days are few and far between when we do not use our computers to pay bills, play games, surf the internet. Since computers are such an integral part of our lives, it is crucial that we take care of them by having them properly maintained.</p>
+      <p>
+        It is hard to imagine our lives without computers. For most of us, the
+        days are few and far between when we do not use our computers to pay
+        bills, play games, surf the internet. Since computers are such an
+        integral part of our lives, it is crucial that we take care of them by
+        having them properly maintained.
+      </p>
       <h5>Early Detection of Issues</h5>
-      <p>Computers can be temperamental, and we all know that small issues can become huge problems before we know it. Having regular maintenance check done on your computer can eradicate small issues before they become big problems. Small issues can crop up at any time, even when your computer is new, nipping them in the bud during a regular maintenance session can save you a lot of headaches when the computer starts to age.</p>
+      <p>
+        Computers can be temperamental, and we all know that small issues can
+        become huge problems before we know it. Having regular maintenance check
+        done on your computer can eradicate small issues before they become big
+        problems. Small issues can crop up at any time, even when your computer
+        is new, nipping them in the bud during a regular maintenance session can
+        save you a lot of headaches when the computer starts to age.
+      </p>
       <h5>Speed up Your Computer</h5>
-      <p>Nothing can be more frustrating than a computer that processes too slowly. But, as most of us can attest, over time our computers get clogged up with files and everything gets disorganized and fragmented. The result is slow processing times. Computer maintenance techs are experts at running speed and optimization checks that can pinpoint issues and keep your computer running at an optimal speed.</p>
+      <p>
+        Nothing can be more frustrating than a computer that processes too
+        slowly. But, as most of us can attest, over time our computers get
+        clogged up with files and everything gets disorganized and fragmented.
+        The result is slow processing times. Computer maintenance techs are
+        experts at running speed and optimization checks that can pinpoint
+        issues and keep your computer running at an optimal speed.
+      </p>
       <h5>Maximize your Software Efficiency</h5>
-      <p>Another reason your computer may slow down over time is that your software package is getting old. Since this change happens gradually, your computer simply gets used to it and thinks that it is normal. But, having regularly scheduled maintenance on your computer will clean out any issues and have your software running perfectly again.</p>
+      <p>
+        Another reason your computer may slow down over time is that your
+        software package is getting old. Since this change happens gradually,
+        your computer simply gets used to it and thinks that it is normal. But,
+        having regularly scheduled maintenance on your computer will clean out
+        any issues and have your software running perfectly again.
+      </p>
       <h5>Prevent Data Loss</h5>
-      <p>Although data loss is uncommon, if it does happen, it can wreak havoc on your life. When your computer starts running slowly or begins having occasional hiccups, it can require a system reboot that can ultimately result in lost data. However, keeping your computer maintained will lessen the likelihood of these instances and keep your data safe and secure for when you need to access it.</p>
+      <p>
+        Although data loss is uncommon, if it does happen, it can wreak havoc on
+        your life. When your computer starts running slowly or begins having
+        occasional hiccups, it can require a system reboot that can ultimately
+        result in lost data. However, keeping your computer maintained will
+        lessen the likelihood of these instances and keep your data safe and
+        secure for when you need to access it.
+      </p>
     </div>
     <!------------VIDEO------------->
     <div class="video__div">
