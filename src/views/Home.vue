@@ -188,33 +188,20 @@
             <div class="contact__form--details">
               <div class="contact__form--name">
                 <label>Your name</label>
-                <input
-                  type="text"
-                  id="name"
-                  maxlength="50"
-                  ref="name"
-                  v-model="user.username"
-                />
+                <input type="text" maxlength="50" v-model="user.username" />
               </div>
               <div class="contact__form--email">
                 <label>Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  maxlength="50"
-                  v-model="user.email"
-                />
+                <input type="email" maxlength="50" v-model="user.email" />
               </div>
             </div>
             <div class="contact__form--textarea">
               <label>Message / comments:</label>
-              <textarea
-                id="message"
-                v-model="user.message"
-                maxlength="300"
-              ></textarea>
+              <textarea v-model="user.message" maxlength="300"></textarea>
             </div>
-            <p class="counter">{{ user.message.length }}/300</p>
+            <p class="counter" :class="{ show: showCounter }">
+              {{ user.message.length }}/300
+            </p>
             <input
               id="btn"
               class="contact__form--button"
@@ -286,74 +273,67 @@ export default {
         email: '',
         message: '',
       },
+      regex: {
+        name: /^[a-z ,.'-]+$/i,
+        email: /\S+@\S+\.\S+/,
+      },
     };
   },
+  computed: {
+    showCounter() {
+      return this.user.message.length > 0;
+    },
+  },
   methods: {
+    resetValues() {
+      this.user.username = '';
+      this.user.email = '';
+      this.user.message = '';
+    },
+    showToaster(message, icon, type) {
+      this.$toasted.show(message, {
+        duration: 3000,
+        icon,
+        type,
+      });
+    },
     submit() {
-      const nameRegex = /^[a-z ,.'-]+$/i;
-      let name = document.querySelector('#name');
-      const emailRegex = /\S+@\S+\.\S+/;
-      let email = document.querySelector('#email');
-      let textarea = document.querySelector('#message');
-
-      if (!nameRegex.test(name.value)) {
-        this.$toasted.show('Please enter a valid name', {
-          duration: 3000,
-          icon: 'exclamation-circle',
-          type: 'error',
-        });
-      } else if (!emailRegex.test(email.value)) {
-        this.$toasted.show('Please enter a valid email address', {
-          duration: 3000,
-          icon: 'exclamation-circle',
-          type: 'error',
-        });
-      } else if (textarea.value.length < 10) {
-        this.$toasted.show('Please enter at least 10 characters', {
-          duration: 3000,
-          icon: 'exclamation-circle',
-          type: 'error',
-        });
-      } else if (textarea.value.length > 300) {
-        this.$toasted.show('Please enter less than 300 characters', {
-          duration: 3000,
-          icon: 'exclamation-circle',
-          type: 'error',
-        });
+      if (!this.regex.name.test(this.user.username)) {
+        this.showToaster(
+          'Please enter a valid name',
+          'exclamation-circle',
+          'error'
+        );
+      } else if (!this.regex.email.test(this.user.email)) {
+        this.showToaster(
+          'Please enter a valid e-mail address',
+          'exclamation-circle',
+          'error'
+        );
+      } else if (this.user.message.length < 10) {
+        this.showToaster(
+          'Please enter at least 10 characters',
+          'exclamation-circle',
+          'error'
+        );
+      } else if (this.user.message.length > 300) {
+        this.showToaster(
+          'Please enter less than 300 characters',
+          'exclamation-circle',
+          'error'
+        );
       } else {
         axios.post(firebaseData.link, this.user).then(
           () => {
-            this.$toasted.show(
+            this.showToaster(
               'Thanks for your message. I will respond in 24 hours.',
-              {
-                duration: 3000,
-                icon: 'check-circle',
-                type: 'success',
-              }
+              'check-circle',
+              'success'
             );
-            this.resetValues();
           },
-          (error) => {
-            console.log(error);
-          }
+          (error) => this.showToaster(error, 'exclamation-circle', 'error')
         );
-      }
-    },
-    resetValues() {
-      let name = document.querySelector('#name');
-      let email = document.querySelector('#email');
-      let textarea = document.querySelector('#message');
-
-      name.value = '';
-      email.value = '';
-      textarea.value = '';
-    },
-    counter() {
-      const p = document.querySelector('.counter');
-      if (this.user.message.length > 0) {
-        p.style.opacity = 1;
-      } else {
-        p.style.opacity = 0;
+        this.resetValues();
       }
     },
   },
@@ -828,6 +808,11 @@ $grey: #787878;
 
   .counter {
     font-size: 1.4rem;
+    opacity: 0;
+  }
+
+  .counter.show {
+    opacity: 1;
   }
 }
 
