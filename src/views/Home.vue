@@ -274,6 +274,7 @@
 
 <script>
 import axios from 'axios';
+import firebaseData from '../../firebase/firebaseLink.js';
 import HomeServiceCards from '../components/HomeComponents/HomeServiceCards.vue';
 export default {
   components: { HomeServiceCards },
@@ -320,24 +321,22 @@ export default {
           type: 'error',
         });
       } else {
-        axios
-          .post('https://website-6eca6.firebaseio.com/data.json', this.user)
-          .then(
-            () => {
-              this.$toasted.show(
-                'Thanks for your message. I will respond in 24 hours.',
-                {
-                  duration: 3000,
-                  icon: 'check-circle',
-                  type: 'success',
-                }
-              );
-              this.resetValues();
-            },
-            (error) => {
-              console.log(error);
-            }
-          );
+        axios.post(firebaseData.link, this.user).then(
+          () => {
+            this.$toasted.show(
+              'Thanks for your message. I will respond in 24 hours.',
+              {
+                duration: 3000,
+                icon: 'check-circle',
+                type: 'success',
+              }
+            );
+            this.resetValues();
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
       }
     },
     resetValues() {
