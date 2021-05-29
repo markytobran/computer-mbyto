@@ -4,17 +4,14 @@
     <img src="../assets/img/laptoprepair.jpg" alt="pc" />
     <div class="details__text">
       <h1>PC/Laptop Repair</h1>
-      <p>It is hard to imagine our lives without computers. For most of us, the days are few and far between when we do not use our computers to pay bills, play games, surf the internet. Since computers are such an integral part of our lives, it is crucial that we take care of them by having them properly maintained.</p>
+      <p>It is hard to imagine our lives without computers. For most of us, the days are few and far between when we do not use our computers to pay bills, play games, surf the internet. Since computers are such an integral part of our lives, it is crucial that we take care of them by having them properly maintained. We also understand how important a computer is, especially for a student, it's a valuable tool for word processing documents and storing all your assignments.</p>
       <h5>Outstanding setup service</h5>
-      <p>Our experts can setup your new device (computer, printer, internet, smartphone, tablet & other WiFi connected smart devices) in your home & office. We'll make sure it's setup just the way you like it.</p>
-      <h5>Computer &amp; Laptop Repair</h5>
-      <p>We can repair most problems with PCs and laptops in the comfort of your home or office. Our unbeatable warranties give you the peace of mind that we stand by the quality our work.</p>
+      <p>Our experts can setup your new device computer, printer, internet, smartphone, tablet & other WiFi connected smart devices in your home & office. We'll make sure it's setup just the way you like it.</p>
+      <h5>Upgrade/Speed up your PC</h5>
+      <p>Whether your computer needs a tune-up, an upgrade or your computer become slower due to general use, bits of old programs left behind after updates & or removal, we can clear these out making it faster again. or we can offer you the best and honest advice and have a service that suits you.</p>
       <h5>Quick diagnose</h5>
-      <p>
-        If you suddenly lose your picture, it’ll either be the monitor or the graphic card in the base unit that’s at fault. We will replace either part or offer you the best solution.
-        Other parts which can fail are the hard drive (the device that stores all your valuable data), the processor , RAM or the motherboard. Whichever it is, we’ve been diagnosing these problems for a while, so you can be sure we’ll find out very quickly what the problem is,and fix it as soon as possible.
-        We are familiar with all brands of computer ( eg. Dell, Toshiba, Acer)
-      </p>
+      <p>If you suddenly lose your picture, it’ll either be the monitor or the graphic card in the base unit that’s at fault. We will replace either part or offer you the best solution. Other parts which can fail are the hard drive (the device that stores all your valuable data), the processor , RAM or the motherboard. Whichever it is, we’ve been diagnosing these problems for a while, so you can be sure we’ll find out very quickly what the problem is,and fix it as soon as possible. We are familiar with all brands of computer ( eg. Dell, Toshiba, Acer).</p>
+      <h5>As we know that our customers rely on their computers for everyday needs so we aim to solve the problem as quick as possible.</h5>
     </div>
     <!------------VIDEO------------->
     <div class="video__div">
@@ -119,8 +116,7 @@
     & img {
       margin-top: 2rem;
       height: 200px;
-      width: 250px;
-      margin-bottom: 2rem;
+      width: 200px;
     }
     & .fa-hand-point-right {
       font-size: 5rem;
@@ -148,7 +144,7 @@
     margin-top: 3rem;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 150px);
+    grid-template-rows: repeat(4, 150px);
     grid-gap: 1.5rem;
     padding-right: 3rem;
 
@@ -168,35 +164,35 @@
 }
 
 .dirty {
-  grid-column: 1/3;
-  grid-row: 3/5;
-  &__1 {
-    grid-column: 1/3;
-    grid-row: 2/3;
-  }
+  grid-column: 1/2;
+  grid-row: 4/5;
   &__2 {
-    grid-column: 3/4;
-    grid-row: 1/1;
+    grid-column: 3/6;
+    grid-row: 3/5;
   }
   &__3 {
-    grid-column: 1/3;
-    grid-row: 1/1;
+    grid-column: 5/6;
+    grid-row: 1/2;
   }
   &__4 {
     grid-column: 4/6;
-    grid-row: 1/1;
+    grid-row: 3/4;
   }
   &__5 {
-    grid-column: 3/6;
-    grid-row: 2/4;
+    grid-column: 1/3;
+    grid-row: 1/4;
   }
   &__6 {
-    grid-column: 3/5;
+    grid-column: 5/6;
+    grid-row: 2/3;
+  }
+  &__7 {
+    grid-column: 2/3;
     grid-row: 4/4;
   }
   &__9 {
-    grid-column: 5/6;
-    grid-row: 4/4;
+    grid-column: 3/5;
+    grid-row: 1/3;
   }
 }
 

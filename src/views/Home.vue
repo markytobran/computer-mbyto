@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!--SectionA-->
-    <section>
+    <section style="height: 100vh">
       <div class="background">
         <video autoplay muted loop>
           <source src="../assets/video/vid.mp4" type="video/mp4" />
@@ -18,25 +18,15 @@
                 <span class="container__repair--span">Fast</span> and
                 <span class="container__repair--span">Secure</span>
               </h3>
-              <p
-                class="container__repair--p"
-              >Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores iste, laudantium porro modi rerum deleniti ipsam odit, corporis nulla iure cum corrupti, ad neque itaque! Facere aliquid sit esse aut.</p>
+              <p class="container__repair--p">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+                iste, laudantium porro modi rerum deleniti ipsam odit, corporis
+                nulla iure cum corrupti, ad neque itaque! Facere aliquid sit
+                esse aut.
+              </p>
             </div>
           </div>
-          <div class="services">
-            <div class="services__card">
-              <img src="../assets/img/homecards/logo/box5.png" />
-              <h5>PC Maintenance</h5>
-            </div>
-            <div class="services__card">
-              <img src="../assets/img/homecards/logo/box4.png" />
-              <h5>Pc/Laptop repair</h5>
-            </div>
-            <div class="services__card">
-              <img src="../assets/img/homecards/logo/box7.png" />
-              <h5>Landing Pages</h5>
-            </div>
-          </div>
+          <home-service-cards />
         </div>
       </div>
     </section>
@@ -49,7 +39,10 @@
         <div class="card">
           <div class="card__side card__side--front">
             <figure>
-              <img src="../assets/img/homecards/pictures/comp.jpg" alt="dirty computer" />
+              <img
+                src="../assets/img/homecards/pictures/comp.jpg"
+                alt="dirty computer"
+              />
               <figcaption>PC Maintenance</figcaption>
             </figure>
             <div class="card__side--details">
@@ -79,7 +72,7 @@
           </div>
           <div class="card__side card__side--back">
             <small>from &#163;20</small>
-            <a>Learn More</a>
+            <a href="/services/maintenance">Learn More</a>
           </div>
         </div>
       </div>
@@ -87,7 +80,10 @@
         <div class="card">
           <div class="card__side card__side--front">
             <figure>
-              <img src="../assets/img/homecards/pictures/repair.jpg" alt="dirty computer" />
+              <img
+                src="../assets/img/homecards/pictures/repair.jpg"
+                alt="dirty computer"
+              />
               <figcaption>PC/Laptop Repair</figcaption>
             </figure>
             <div class="card__side--details">
@@ -117,7 +113,7 @@
           </div>
           <div class="card__side card__side--back">
             <small>from &#163;30</small>
-            <a>Learn More</a>
+            <a href="/services/repair">Learn More</a>
           </div>
         </div>
       </div>
@@ -125,7 +121,10 @@
         <div class="card">
           <div class="card__side card__side--front">
             <figure>
-              <img src="../assets/img/homecards/pictures/website.jpg" alt="dirty computer" />
+              <img
+                src="../assets/img/homecards/pictures/website.jpg"
+                alt="dirty computer"
+              />
               <figcaption>Landing pages</figcaption>
             </figure>
             <div class="card__side--details">
@@ -155,7 +154,7 @@
           </div>
           <div class="card__side card__side--back">
             <small>from &#163;100</small>
-            <a>Learn More</a>
+            <a href="/services/website">Learn More</a>
           </div>
         </div>
       </div>
@@ -185,22 +184,44 @@
       <div class="contact__form">
         <div class="contact__form--div">
           <h1>Contact form</h1>
-          <form>
+          <form id="contact">
             <div class="contact__form--details">
               <div class="contact__form--name">
                 <label>Your name</label>
-                <input />
+                <input
+                  type="text"
+                  id="name"
+                  maxlength="50"
+                  ref="name"
+                  v-model="user.username"
+                />
               </div>
               <div class="contact__form--email">
                 <label>Email</label>
-                <input />
+                <input
+                  type="email"
+                  id="email"
+                  maxlength="50"
+                  v-model="user.email"
+                />
               </div>
             </div>
             <div class="contact__form--textarea">
               <label>Message / comments:</label>
-              <textarea></textarea>
+              <textarea
+                id="message"
+                v-model="user.message"
+                maxlength="300"
+              ></textarea>
             </div>
-            <input id="btn" class="contact__form--button" type="submit" value="Send Message" />
+            <p class="counter">{{ user.message.length }}/300</p>
+            <input
+              id="btn"
+              class="contact__form--button"
+              type="submit"
+              value="Send Message"
+              @click.prevent="submit"
+            />
           </form>
         </div>
         <div class="advantage__div">
@@ -211,25 +232,38 @@
               <i class="far fa-thumbs-up"></i>
               <h4>Individual Approach</h4>
               <hr />
-              <p>We use an individual approach to each client and we never offer you a set of standard decisions for your business.</p>
+              <p>
+                We use an individual approach to each client and we never offer
+                you a set of standard decisions for your business.
+              </p>
             </div>
             <div class="advantage__div--card">
               <i class="far fa-comments"></i>
               <h4>Qualified Employees</h4>
               <hr />
-              <p>Brave is a team of designers, developers, marketing experts and managers who are ready to work on a personalized web solution.</p>
+              <p>
+                Brave is a team of designers, developers, marketing experts and
+                managers who are ready to work on a personalized web solution.
+              </p>
             </div>
             <div class="advantage__div--card">
               <i class="far fa-window-maximize"></i>
               <h4>Websites</h4>
               <hr />
-              <p>Our expert team can design a landing page of any complexity. Everything depends on what you are looking for.</p>
+              <p>
+                Our expert team can design a landing page of any complexity.
+                Everything depends on what you are looking for.
+              </p>
             </div>
             <div class="advantage__div--card">
               <i class="far fa-credit-card"></i>
               <h4>Various Payment Methods</h4>
               <hr />
-              <p>We provide a variety of payment methods that include Paypal, Visa/Mastercard/American Express and lots of others, which can be customized.</p>
+              <p>
+                We provide a variety of payment methods that include Paypal,
+                Visa/Mastercard/American Express and lots of others, which can
+                be customized.
+              </p>
             </div>
           </div>
         </div>
@@ -239,8 +273,91 @@
 </template>
 
 <script>
+import axios from 'axios';
+import HomeServiceCards from '../components/HomeComponents/HomeServiceCards.vue';
 export default {
-  name: "Home"
+  components: { HomeServiceCards },
+  name: 'Home',
+  data() {
+    return {
+      user: {
+        username: '',
+        email: '',
+        message: '',
+      },
+    };
+  },
+  methods: {
+    submit() {
+      const nameRegex = /^[a-z ,.'-]+$/i;
+      let name = document.querySelector('#name');
+      const emailRegex = /\S+@\S+\.\S+/;
+      let email = document.querySelector('#email');
+      let textarea = document.querySelector('#message');
+
+      if (!nameRegex.test(name.value)) {
+        this.$toasted.show('Please enter a valid name', {
+          duration: 3000,
+          icon: 'exclamation-circle',
+          type: 'error',
+        });
+      } else if (!emailRegex.test(email.value)) {
+        this.$toasted.show('Please enter a valid email address', {
+          duration: 3000,
+          icon: 'exclamation-circle',
+          type: 'error',
+        });
+      } else if (textarea.value.length < 10) {
+        this.$toasted.show('Please enter at least 10 characters', {
+          duration: 3000,
+          icon: 'exclamation-circle',
+          type: 'error',
+        });
+      } else if (textarea.value.length > 300) {
+        this.$toasted.show('Please enter less than 300 characters', {
+          duration: 3000,
+          icon: 'exclamation-circle',
+          type: 'error',
+        });
+      } else {
+        axios
+          .post('https://website-6eca6.firebaseio.com/data.json', this.user)
+          .then(
+            () => {
+              this.$toasted.show(
+                'Thanks for your message. I will respond in 24 hours.',
+                {
+                  duration: 3000,
+                  icon: 'check-circle',
+                  type: 'success',
+                }
+              );
+              this.resetValues();
+            },
+            (error) => {
+              console.log(error);
+            }
+          );
+      }
+    },
+    resetValues() {
+      let name = document.querySelector('#name');
+      let email = document.querySelector('#email');
+      let textarea = document.querySelector('#message');
+
+      name.value = '';
+      email.value = '';
+      textarea.value = '';
+    },
+    counter() {
+      const p = document.querySelector('.counter');
+      if (this.user.message.length > 0) {
+        p.style.opacity = 1;
+      } else {
+        p.style.opacity = 0;
+      }
+    },
+  },
 };
 </script>
 
@@ -254,7 +371,7 @@ $grey: #787878;
   position: relative;
 }
 .background::after {
-  content: "";
+  content: '';
   top: 0;
   left: 0;
   position: absolute;
@@ -303,48 +420,6 @@ $grey: #787878;
       font-size: 2rem;
     }
   }
-
-  .services {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    width: 90%;
-    margin: 0 auto;
-    background: rgba(0, 0, 0, 0.5);
-    height: 60vh;
-    border-radius: 20px;
-
-    &__card {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      height: 60%;
-      width: 20%;
-      background: rgba(255, 255, 255, 0.1);
-      margin-right: 7rem;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: background 0.5s ease-in-out;
-
-      &:hover {
-        background: $pink;
-      }
-
-      & h5 {
-        font-size: 2.5rem;
-        width: 80%;
-        margin: 0 auto;
-        text-transform: uppercase;
-      }
-
-      & img {
-        margin: 0 auto;
-        height: 20rem;
-        width: 26rem;
-      }
-    }
-  }
 }
 
 .price__container {
@@ -355,7 +430,7 @@ $grey: #787878;
   padding: 4rem;
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -425,7 +500,7 @@ $grey: #787878;
         clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 
         &::after {
-          content: "";
+          content: '';
           top: 0;
           left: 0;
           background-color: rgba(0, 0, 0, 0.6);
@@ -476,12 +551,14 @@ $grey: #787878;
       a {
         background: $pink;
         width: 18rem;
+        color: $white;
         padding: 1.5rem 3rem;
         border-radius: 100px;
         font-size: 1.5rem;
         text-transform: uppercase;
-        font-weight: 500;
+        font-weight: 800;
         transition: all 0.5s;
+        text-decoration: none;
 
         &:hover {
           transform: translateY(-5px);
@@ -577,7 +654,7 @@ $grey: #787878;
       margin-right: 3rem;
 
       &::after {
-        content: "";
+        content: '';
         background-color: $pink;
         opacity: 0.6;
         width: 100%;
@@ -612,6 +689,7 @@ $grey: #787878;
       border: 2px solid #787878;
       color: $white;
       font-weight: 500;
+      outline: none;
 
       &:active {
         border: 2px solid $white;
@@ -619,11 +697,16 @@ $grey: #787878;
     }
 
     input {
-      min-height: 3rem;
+      min-height: 4rem;
+      font-size: 2rem;
+      font-weight: 400;
     }
 
     textarea {
-      min-height: 20rem;
+      min-height: 25rem;
+      font-size: 2.5rem;
+      font-weight: 400;
+      padding: 2px;
     }
 
     & label {
@@ -669,7 +752,7 @@ $grey: #787878;
       padding: 2rem 3.5rem;
       text-transform: uppercase;
       color: $white;
-      font-size: 2rem;
+      outline: none;
     }
   }
   #btn {
@@ -740,6 +823,44 @@ $grey: #787878;
         font-size: 1.5rem;
         margin-top: 1rem;
         opacity: 0.6;
+      }
+    }
+  }
+
+  .counter {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    &__div {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+      padding: 2rem;
+      height: 200vh;
+    }
+    &__problem {
+      flex: none;
+      & strong {
+        font-size: 3rem;
+      }
+      & h5 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+    }
+    &__repair {
+      flex: none;
+      justify-content: center;
+      align-items: center;
+      &--heading {
+        font-size: 3rem;
+      }
+      &--p {
+        font-size: 2rem;
       }
     }
   }

@@ -14,28 +14,18 @@
       <nav>
         <div class="nav-div-top">
           <div class="nav-div-top-logo">
-            <a href="#">
+            <a href="/">
               <img src="../assets/logo.png" />
             </a>
           </div>
-          <div class="nav-input">
-            <svg class="search-icon">
-              <use xlink:href="../assets/svg/symbol-defs.svg#icon-search" />
-            </svg>
-            <input type="text" placeholder="Search..." />
-            <svg class="search-icon">
-              <use xlink:href="../assets/svg/symbol-defs.svg#icon-mic" />
-            </svg>
-          </div>
           <div class="nav-estimate">
-            <a href="#" class="nav-estimate-link">Free estimate</a>
+            <a @click="focusContact" class="nav-estimate-link">Free estimate</a>
           </div>
         </div>
         <hr />
         <div class="nav-div-bottom">
-          <router-link to="/" tag="li" active-class="active" exact>Home</router-link>
-          <router-link to="/services" tag="li" active-class="active" exact>Services</router-link>
-          <router-link to="/about" tag="li" active-class="active" exact>About</router-link>
+          <router-link to="/" tag="li" :class="{active: routeName === 'Home'}">Home</router-link>
+          <router-link to="/services/maintenance" tag="li" :class="{active: routeName === 'Website' || routeName === 'Maintenance' || routeName === 'Repair'}">Services</router-link>
         </div>
       </nav>
     </div>
@@ -44,11 +34,37 @@
 
 <script>
 export default {
-  name: "Header"
+  name: "Header",
+  data() {
+    return {
+      window: window
+    };
+  },
+   computed:{
+    routeName(){
+      return this.$route.name;
+    }
+  },
+  methods: {
+    focusContact() {
+      const path = this.$route.path;
+      console.log(path);
+      if(path === '/'){
+        window.setTimeout(function() {
+        document.getElementById("name").focus();
+       }, 0);
+      } else if (path === '/services'){
+        this.$router.push("/");
+        window.setTimeout(function() {
+        document.getElementById("name").focus();
+       }, 500);
+      }
+    }
+  }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped lang="scss">
 $black: #000;
 $white: #fff;
@@ -82,6 +98,8 @@ hr {
     background-color: rgba($white, 0.2);
     border-radius: 2rem;
     padding: 5px 2rem;
+    flex-wrap: nowrap;
+    
 
     & i {
       color: $black;
@@ -124,7 +142,7 @@ hr {
   cursor: pointer;
 
   &-link {
-    padding: 0 20px;
+    padding: 5px 8px 20px 25px;
     font-weight: 800;
     text-transform: uppercase;
     font-size: 2rem;
@@ -132,6 +150,10 @@ hr {
     text-decoration: none;
     text-shadow: 2px 4px 2px rgba($black, 0.3);
     transition: all 0.3s;
+
+    & a {
+      height: 10rem;
+    }
   }
   &:hover {
     background-color: $white;
@@ -210,6 +232,8 @@ hr {
     &:focus {
       width: 100%;
       background-color: $white;
+      color: #000;
+      font-weight: 800;
     }
     &::placeholder {
       font-weight: 800;
@@ -229,5 +253,42 @@ hr {
 
 img {
   width: 180px;
+}
+
+@media screen and (max-width: 1250px) {
+    header{
+      height: 20vh;
+    }
+    
+    .header__up {
+      width: 85%;
+
+      & div i{
+        font-size: 1.3rem;
+      }
+      & div a{
+        font-size: 1.3rem;
+      }
+    }
+
+    .nav-div-top-logo img {
+       height: 50px;
+       width: 120px;
+    }
+
+    .nav-estimate {
+      height: 30px;
+      width: 160px;
+
+      &-link {
+        font-size: 1.3rem;
+      }
+    }
+
+    .nav-div-bottom{
+      & li{
+        font-size: 1.3rem;
+      }
+    }
 }
 </style>

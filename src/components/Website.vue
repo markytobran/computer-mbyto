@@ -4,6 +4,11 @@
     <img src="../assets/img/website.jpg" alt="pc" />
     <div class="details__text">
       <h1>Landing page</h1>
+      <p>We use simple structure and keep things modern and gorgeous. We will send your message to your customers in a clear and succinct way. Making unique and user-friendly websites is truly a passion of ours. Landing pages help increase your conversion rates and lower your cost-per-acquisition. The main reason they're so good at it is that promotional or product-specific landing pages are focused on a single goal. This goal matches the intent of the ad or email visitors clicked on to reach your page.</p>
+      <h5>Responsive design</h5>
+      <p>If you want your future website to be displayed perfectly on any device, then Brave Theme is certainly your number 1 choice. With its full responsiveness even smarphones can load it.</p>
+      <h5>Web design</h5>
+      <p>Users enjoy visiting sites that are aesthetically appealing and easy to navigate. Let our team help your site make an outstanding first impression with speed and accessibility.</p>
     </div>
     <!------------VIDEO------------->
     <div class="video__div">
@@ -157,8 +162,6 @@
 .dirty {
   grid-column: 1/2;
   grid-row: 4/5;
-  &__1 {
-  }
   &__2 {
     grid-column: 3/6;
     grid-row: 3/5;

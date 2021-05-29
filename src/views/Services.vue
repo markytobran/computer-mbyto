@@ -12,15 +12,7 @@
       <div class="details__container">
         <!-----------COMPONENTS-------------------->
 
-        <div v-if="selected === 0">
-          <Pcmain></Pcmain>
-        </div>
-        <div v-if="selected === 1">
-          <Pcrepair></Pcrepair>
-        </div>
-        <div v-if="selected === 2">
-          <Website></Website>
-        </div>
+       <router-view></router-view>
 
         <!-----------NAVIGATION-------------------->
         <div class="navigation">
@@ -28,32 +20,29 @@
             <div>
               <h2>Solutions for you or your business</h2>
               <ul class="navigation__list">
-                <li
-                  class="navigation__disc"
-                  :class="{ active: selected === 0 }"
-                  @click="selected = 0"
-                >
-                  <span class="navigation__disc-i" :class="{ off: selected === 0 }"></span>Pc Maintenance
-                </li>
-                <li
-                  class="navigation__disc"
-                  :class="{ active: selected === 1 }"
-                  @click="selected = 1"
-                >
-                  <span class="navigation__disc-i" :class="{ off: selected === 1 }"></span>Pc/Laptop Repair
-                </li>
-                <li
-                  class="navigation__disc"
-                  :class="{ active: selected === 2 }"
-                  @click="selected = 2"
-                >
-                  <span class="navigation__disc-i" :class="{ off: selected === 2 }"></span>Landing Pages
-                </li>
+                <router-link 
+                  to="/services/maintenance"
+                  tag="li"
+                  class="navigation__disc">
+                  <span class="navigation__disc-i"></span>Pc Maintenance
+                </router-link>
+                <router-link 
+                  to="/services/repair" 
+                  tag="li"
+                  class="navigation__disc">
+                  <span class="navigation__disc-i"></span>Pc/Laptop Repair
+                </router-link>
+                <router-link 
+                  to="/services/website" 
+                  tag="li" 
+                  class="navigation__disc">
+                  <span class="navigation__disc-i"></span>Landing Pages
+                </router-link>
               </ul>
             </div>
           </div>
           <!-----------LOGO------------------------>
-          <div>
+          <div class="logo">
             <img src="../assets/logo.png" />
           </div>
           <!----------CONTACT---------------------->
@@ -81,7 +70,7 @@
                 <p>E-Mail:</p>
                 <div>
                   <i class="fas fa-envelope"></i>
-                  <p>mrkbyto@gmail.com</p>
+                  <p>hello@mbyto.co.uk</p>
                 </div>
               </div>
             </div>
@@ -93,18 +82,9 @@
 </template>
 
 <script>
-import Pcmain from "../components/PcMaintenance";
-import Pcrepair from "../components/PcRepair";
-import Website from "../components/Website";
-
-export default {
-  name: "Services",
-  components: {
-    Pcmain,
-    Pcrepair,
-    Website
-  },
-  data() {
+ export default {
+   name: "Services",
+   data() {
     return {
       result: 0,
       selected: 0
@@ -163,7 +143,8 @@ export default {
 
 <style lang="scss" scoped>
 .services {
-  height: 310vh;
+  height: auto;
+  margin-bottom: 100px;
 }
 
 .image__container {
@@ -227,11 +208,11 @@ export default {
 /*******Navigation *********/
 .navigation {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: space-between;
   padding-left: 2rem;
   padding-top: 4rem;
-  height: 254vh;
   width: 70%;
 
   & h2 {
@@ -256,7 +237,7 @@ export default {
     padding: 0 0.5rem;
 
     &:hover &-i {
-      animation: up 1s ease-in-out;
+      animation: up .8s ease-in-out;
     }
 
     &-i {
@@ -272,6 +253,9 @@ export default {
 
 .contact {
   display: flex;
+  position: absolute;
+  bottom: 8%;
+  left: 100px;
 
   &__help {
     margin-right: 2rem;
@@ -377,6 +361,13 @@ export default {
   }
 }
 
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-40%);
+}
+
 /***Animations ***/
 @keyframes line {
   0% {
@@ -455,13 +446,13 @@ export default {
   }
 }
 
-.active {
+.router-link-active {
   box-shadow: 1rem 1rem 1rem (rgba(0, 0, 0, 0.5));
   background: #ffb7c5;
   color: white;
-}
 
-.off {
-  opacity: 0;
+  & span{
+    opacity: 0;
+  }
 }
 </style>

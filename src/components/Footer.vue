@@ -4,17 +4,24 @@
       <img src="../assets/logo.png" />
     </div>
     <div class="contact__copyright">
-      <p>Copyright © 2020 Mbyto All rights reserved.</p>
+      <p>Copyright © 2021 Mbyto All rights reserved.</p>
     </div>
-    <div class="contact__button">
+    <div class="contact__button" @click="toTheTop">
       <a>
-        <i class="fas fa-arrow-down"></i>
+        <i class="fas fa-arrow-up"></i>
       </a>
     </div>
   </footer>
 </template>
 
 <script>
+export default {
+methods:{
+  toTheTop(){
+    window.scrollTo(0, 0);
+  }
+ }
+}
 </script>
 
 <style scoped lang="scss">
@@ -44,12 +51,9 @@ footer {
     border-radius: 50%;
     position: relative;
     cursor: pointer;
-    transition: all 1s ease-in-out;
+    transition: all 0.2s ease-in-out;
     margin-right: 5px;
 
-    &:hover {
-      transform: rotateX(180deg);
-    }
     & a {
       height: 100%;
       width: 100%;
