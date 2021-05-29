@@ -3,6 +3,7 @@
   <div class="details">
     <img src="../assets/img/pc-maintenance.jpg" alt="pc" />
     <div class="details__text">
+      <h1>PC Maintenance</h1>
       <p>
         It is hard to imagine our lives without computers. For most of us, the
         days are few and far between when we do not use our computers to pay
