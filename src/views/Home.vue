@@ -26,6 +26,7 @@
               </p>
             </div>
           </div>
+          <!--Home service cards-->
           <home-service-cards />
         </div>
       </div>
@@ -35,129 +36,25 @@
       <div class="price__div">
         <h1>Prices</h1>
       </div>
-      <div class="price__cards">
-        <div class="card">
-          <div class="card__side card__side--front">
-            <figure>
-              <img
-                src="../assets/img/homecards/pictures/comp.jpg"
-                alt="dirty computer"
-              />
-              <figcaption>PC Maintenance</figcaption>
-            </figure>
-            <div class="card__side--details">
-              <ul>
-                <li>
-                  <i class="fas fa-check"></i>
-                  <p>Dust free PC/Laptop</p>
-                </li>
-                <li>
-                  <i class="fas fa-check"></i>
-                  <p>Better performance</p>
-                </li>
-                <li>
-                  <i class="fas fa-check"></i>
-                  <p>Extended computer life-span</p>
-                </li>
-                <li>
-                  <i class="fas fa-check"></i>
-                  <p>Faster and more efficient airflow</p>
-                </li>
-                <li>
-                  <i class="fas fa-check"></i>
-                  <p>Fast Fresh and Friendly</p>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="card__side card__side--back">
-            <small>from &#163;20</small>
-            <a href="/services/maintenance">Learn More</a>
-          </div>
-        </div>
-      </div>
-      <div class="price__cards">
-        <div class="card">
-          <div class="card__side card__side--front">
-            <figure>
-              <img
-                src="../assets/img/homecards/pictures/repair.jpg"
-                alt="dirty computer"
-              />
-              <figcaption>PC/Laptop Repair</figcaption>
-            </figure>
-            <div class="card__side--details">
-              <ul>
-                <li>
-                  <i class="fas fa-check"></i>
-                  <p>Apple &amp; Windows services</p>
-                </li>
-                <li>
-                  <i class="fas fa-check"></i>
-                  <p>Router setup</p>
-                </li>
-                <li>
-                  <i class="fas fa-check"></i>
-                  <p>Hardware/Software installations</p>
-                </li>
-                <li>
-                  <i class="fas fa-check"></i>
-                  <p>Virus removal</p>
-                </li>
-                <li>
-                  <i class="fas fa-check"></i>
-                  <p>Fast solution</p>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="card__side card__side--back">
-            <small>from &#163;30</small>
-            <a href="/services/repair">Learn More</a>
-          </div>
-        </div>
-      </div>
-      <div class="price__cards">
-        <div class="card">
-          <div class="card__side card__side--front">
-            <figure>
-              <img
-                src="../assets/img/homecards/pictures/website.jpg"
-                alt="dirty computer"
-              />
-              <figcaption>Landing pages</figcaption>
-            </figure>
-            <div class="card__side--details">
-              <ul>
-                <li>
-                  <i class="fas fa-check"></i>
-                  <p>Most recent technologies</p>
-                </li>
-                <li>
-                  <i class="fas fa-check"></i>
-                  <p>Responsive design</p>
-                </li>
-                <li>
-                  <i class="fas fa-check"></i>
-                  <p>SEO</p>
-                </li>
-                <li>
-                  <i class="fas fa-check"></i>
-                  <p>Well designed</p>
-                </li>
-                <li>
-                  <i class="fas fa-check"></i>
-                  <p>Modern looking</p>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="card__side card__side--back">
-            <small>from &#163;100</small>
-            <a href="/services/website">Learn More</a>
-          </div>
-        </div>
-      </div>
+      <!--Price-Cards-->
+      <price-card
+        cardHeader="PC Maintenance"
+        :cardDetails="pcDetailsList"
+        imgName="comp.jpg"
+        url="/services/maintenance"
+      />
+      <price-card
+        cardHeader="PC/Laptop Repair"
+        :cardDetails="laptopRepairList"
+        imgName="repair.jpg"
+        url="/services/repair"
+      />
+      <price-card
+        cardHeader="Landing pages"
+        :cardDetails="pcDetailsList"
+        imgName="website.jpg"
+        url="/services/website"
+      />
     </section>
     <!--SectionC-->
     <section class="contact">
@@ -182,87 +79,9 @@
         </div>
       </div>
       <div class="contact__form">
-        <div class="contact__form--div">
-          <h1>Contact form</h1>
-          <form id="contact">
-            <div class="contact__form--details">
-              <div class="contact__form--name">
-                <label>Your name</label>
-                <input type="text" maxlength="50" v-model="user.username" />
-              </div>
-              <div class="contact__form--email">
-                <label>Email</label>
-                <input type="email" maxlength="50" v-model="user.email" />
-              </div>
-            </div>
-            <div class="contact__form--textarea">
-              <label>Message / comments:</label>
-              <textarea v-model="user.message" maxlength="300"></textarea>
-            </div>
-            <p class="counter" :class="{ show: showCounter }">
-              {{ user.message.length }}/300
-            </p>
-            <input
-              id="btn"
-              class="contact__form--button"
-              type="submit"
-              value="Send Message"
-              @click.prevent="submit"
-            />
-          </form>
-        </div>
-        <div class="advantage__div">
-          <h1>Our advantages</h1>
-          <hr class="advantage__div--hr" />
-          <div class="advantage__div--cards">
-            <advantage-card
-              cardHeader="Individual Approach"
-              iconName="far fa-thumbs-up"
-            >
-              <template>
-                <p>
-                  We use an individual approach to each client and we never
-                  offer you a set of standard decisions for your business.
-                </p>
-              </template>
-            </advantage-card>
-            <advantage-card
-              cardHeader="Qualified Employees"
-              iconName="far fa-comments"
-            >
-              <template>
-                <p>
-                  Brave is a team of designers, developers, marketing experts
-                  and managers who are ready to work on a personalized web
-                  solution.
-                </p>
-              </template>
-            </advantage-card>
-            <advantage-card
-              cardHeader="Websites"
-              iconName="far fa-window-maximize"
-            >
-              <template>
-                <p>
-                  Our expert team can design a landing page of any complexity.
-                  Everything depends on what you are looking for.
-                </p>
-              </template>
-            </advantage-card>
-            <advantage-card
-              cardHeader="Various Payment Methods"
-              iconName="far fa-credit-card"
-            >
-              <template>
-                <p>
-                  We provide a variety of payment methods that include Paypal,
-                  Visa/Mastercard/American Express and lots of others, which can
-                  be customized.
-                </p>
-              </template>
-            </advantage-card>
-          </div>
-        </div>
+        <contact-form />
+        <!--Advantage Cards Container-->
+        <advantage-cards-container />
       </div>
     </section>
   </div>
@@ -272,9 +91,17 @@
 import axios from 'axios';
 import firebaseData from '../../firebase/firebaseLink.js';
 import HomeServiceCards from '../components/HomeComponents/HomeServiceCards.vue';
-import AdvantageCard from '../components/HomeComponents/AdvantageCard.vue';
+import AdvantageCardsContainer from '../components/HomeComponents/AdvantageCardsContainer.vue';
+import ContactForm from '../components/HomeComponents/ContactForm.vue';
+import PriceCard from '../components/HomeComponents/PriceCard.vue';
+
 export default {
-  components: { HomeServiceCards, AdvantageCard },
+  components: {
+    HomeServiceCards,
+    AdvantageCardsContainer,
+    ContactForm,
+    PriceCard,
+  },
   name: 'Home',
   data() {
     return {
@@ -287,6 +114,27 @@ export default {
         name: /^[a-z ,.'-]+$/i,
         email: /\S+@\S+\.\S+/,
       },
+      landingPagesList: [
+        'Most recent technologies',
+        'Responsive design',
+        'SEO',
+        'Well designed',
+        'Modern looking',
+      ],
+      laptopRepairList: [
+        'Apple & Windows services',
+        'Router setup',
+        'Hardware/Software installations',
+        'Virus removal',
+        'Fast solution',
+      ],
+      pcDetailsList: [
+        'Dust free PC/Laptop',
+        'Better performance',
+        'Extended computer life-span',
+        'Faster and more efficient airflow',
+        'Fast Fresh and Friendly',
+      ],
     };
   },
   computed: {
@@ -449,145 +297,145 @@ export default {
   }
 }
 
-.price__cards {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  text-align: center;
-  width: 100%;
-  height: 100%;
-}
+// .price__cards {
+//   display: flex;
+//   justify-content: center;
+//   align-items: flex-end;
+//   text-align: center;
+//   width: 100%;
+//   height: 100%;
+// }
 
-.card {
-  perspective: 150rem;
-  z-index: 1000;
-  cursor: pointer;
-  position: relative;
-  height: 50rem;
-  width: 30rem;
+// .card {
+//   perspective: 150rem;
+//   z-index: 1000;
+//   cursor: pointer;
+//   position: relative;
+//   height: 50rem;
+//   width: 30rem;
 
-  &__side {
-    height: 50rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    backface-visibility: hidden;
-    transition: all 2s ease;
-    box-shadow: 0 1.5rem 4rem rgba(#000, 0.15);
+//   &__side {
+//     height: 50rem;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     backface-visibility: hidden;
+//     transition: all 2s ease;
+//     box-shadow: 0 1.5rem 4rem rgba(#000, 0.15);
 
-    &--front {
-      background-color: $white;
+//     &--front {
+//       background-color: $white;
 
-      & figure {
-        height: 50%;
-        position: relative;
-        clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+//       & figure {
+//         height: 50%;
+//         position: relative;
+//         clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 
-        &::after {
-          content: '';
-          top: 0;
-          left: 0;
-          background-color: rgba(0, 0, 0, 0.6);
-          position: absolute;
-          width: 100%;
-          height: 100%;
-        }
-      }
+//         &::after {
+//           content: '';
+//           top: 0;
+//           left: 0;
+//           background-color: rgba(0, 0, 0, 0.6);
+//           position: absolute;
+//           width: 100%;
+//           height: 100%;
+//         }
+//       }
 
-      & figure img {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-      }
+//       & figure img {
+//         object-fit: cover;
+//         width: 100%;
+//         height: 100%;
+//       }
 
-      & figcaption {
-        position: absolute;
-        bottom: 4rem;
-        right: 2rem;
-        color: $white;
-        z-index: 1000;
-        font-size: 2rem;
-        text-transform: uppercase;
-        font-weight: 800;
-        background-color: $pink;
-        padding: 0.5rem 1rem;
-        box-shadow: 1rem 1rem 1rem (rgba(0, 0, 0, 0.8));
-        text-shadow: 0.3rem 0.3rem 1rem (rgba(0, 0, 0, 0.8));
-      }
-    }
+//       & figcaption {
+//         position: absolute;
+//         bottom: 4rem;
+//         right: 2rem;
+//         color: $white;
+//         z-index: 1000;
+//         font-size: 2rem;
+//         text-transform: uppercase;
+//         font-weight: 800;
+//         background-color: $pink;
+//         padding: 0.5rem 1rem;
+//         box-shadow: 1rem 1rem 1rem (rgba(0, 0, 0, 0.8));
+//         text-shadow: 0.3rem 0.3rem 1rem (rgba(0, 0, 0, 0.8));
+//       }
+//     }
 
-    &--back {
-      background: linear-gradient(grey 5%, black 95%);
-      transform: rotateY(180deg);
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      height: 100%;
-      width: 100%;
-      flex-direction: column;
-      color: $white;
+//     &--back {
+//       background: linear-gradient(grey 5%, black 95%);
+//       transform: rotateY(180deg);
+//       display: flex;
+//       justify-content: space-evenly;
+//       align-items: center;
+//       height: 100%;
+//       width: 100%;
+//       flex-direction: column;
+//       color: $white;
 
-      small {
-        font-size: 3rem;
-        font-weight: 800;
-      }
+//       small {
+//         font-size: 3rem;
+//         font-weight: 800;
+//       }
 
-      a {
-        background: $pink;
-        width: 18rem;
-        color: $white;
-        padding: 1.5rem 3rem;
-        border-radius: 100px;
-        font-size: 1.5rem;
-        text-transform: uppercase;
-        font-weight: 800;
-        transition: all 0.5s;
-        text-decoration: none;
+//       a {
+//         background: $pink;
+//         width: 18rem;
+//         color: $white;
+//         padding: 1.5rem 3rem;
+//         border-radius: 100px;
+//         font-size: 1.5rem;
+//         text-transform: uppercase;
+//         font-weight: 800;
+//         transition: all 0.5s;
+//         text-decoration: none;
 
-        &:hover {
-          transform: translateY(-5px);
-          box-shadow: 0.4rem 0.4rem 0.7rem (rgba($white, 0.6));
-        }
-      }
-    }
-    &--details {
-      background: linear-gradient(grey 5%, black 95%);
-      height: 55%;
-      margin-top: -2.5rem;
+//         &:hover {
+//           transform: translateY(-5px);
+//           box-shadow: 0.4rem 0.4rem 0.7rem (rgba($white, 0.6));
+//         }
+//       }
+//     }
+//     &--details {
+//       background: linear-gradient(grey 5%, black 95%);
+//       height: 55%;
+//       margin-top: -2.5rem;
 
-      & ul {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        padding: 1.5rem;
-        padding-top: 4.5rem;
-      }
+//       & ul {
+//         list-style: none;
+//         display: flex;
+//         flex-direction: column;
+//         padding: 1.5rem;
+//         padding-top: 4.5rem;
+//       }
 
-      & i {
-        color: $pink;
-        margin-right: 5px;
-        margin-top: 2px;
-      }
+//       & i {
+//         color: $pink;
+//         margin-right: 5px;
+//         margin-top: 2px;
+//       }
 
-      & li {
-        color: $white;
-        font-size: 1.5rem;
-        font-weight: 500;
-        display: flex;
-        line-height: 2rem;
-        margin-bottom: 2.2rem;
-      }
-    }
-  }
+//       & li {
+//         color: $white;
+//         font-size: 1.5rem;
+//         font-weight: 500;
+//         display: flex;
+//         line-height: 2rem;
+//         margin-bottom: 2.2rem;
+//       }
+//     }
+//   }
 
-  &:hover &__side--front {
-    transform: rotateY(180deg);
-  }
-  &:hover &__side--back {
-    transform: rotateY(0);
-  }
-}
+//   &:hover &__side--front {
+//     transform: rotateY(180deg);
+//   }
+//   &:hover &__side--back {
+//     transform: rotateY(0);
+//   }
+// }
 
 .contact {
   height: 115vh;
@@ -738,40 +586,6 @@ export default {
       text-transform: uppercase;
       color: $white;
       outline: none;
-    }
-  }
-  #btn {
-    background: linear-gradient(to right, #787878, #000);
-    cursor: pointer;
-    transition: 0.3s ease-in;
-
-    &:hover {
-      background: #000;
-      border: 2px solid #000;
-    }
-  }
-
-  .advantage__div {
-    margin-left: 4rem;
-    width: 60%;
-    h1 {
-      font-size: 4rem;
-      text-transform: uppercase;
-      margin-bottom: 3rem;
-    }
-    &--hr {
-      background: linear-gradient(to right, $grey, $pink);
-      width: 10rem;
-      height: 5px;
-      outline: none;
-      border: 0;
-    }
-    &--cards {
-      display: grid;
-      margin-top: 4rem;
-      grid-template-columns: 1fr 1fr;
-      column-gap: 5rem;
-      row-gap: 5rem;
     }
   }
 
