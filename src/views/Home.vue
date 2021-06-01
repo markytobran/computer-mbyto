@@ -215,43 +215,52 @@
           <h1>Our advantages</h1>
           <hr class="advantage__div--hr" />
           <div class="advantage__div--cards">
-            <div class="advantage__div--card">
-              <i class="far fa-thumbs-up"></i>
-              <h4>Individual Approach</h4>
-              <hr />
-              <p>
-                We use an individual approach to each client and we never offer
-                you a set of standard decisions for your business.
-              </p>
-            </div>
-            <div class="advantage__div--card">
-              <i class="far fa-comments"></i>
-              <h4>Qualified Employees</h4>
-              <hr />
-              <p>
-                Brave is a team of designers, developers, marketing experts and
-                managers who are ready to work on a personalized web solution.
-              </p>
-            </div>
-            <div class="advantage__div--card">
-              <i class="far fa-window-maximize"></i>
-              <h4>Websites</h4>
-              <hr />
-              <p>
-                Our expert team can design a landing page of any complexity.
-                Everything depends on what you are looking for.
-              </p>
-            </div>
-            <div class="advantage__div--card">
-              <i class="far fa-credit-card"></i>
-              <h4>Various Payment Methods</h4>
-              <hr />
-              <p>
-                We provide a variety of payment methods that include Paypal,
-                Visa/Mastercard/American Express and lots of others, which can
-                be customized.
-              </p>
-            </div>
+            <advantage-card
+              cardHeader="Individual Approach"
+              iconName="far fa-thumbs-up"
+            >
+              <template>
+                <p>
+                  We use an individual approach to each client and we never
+                  offer you a set of standard decisions for your business.
+                </p>
+              </template>
+            </advantage-card>
+            <advantage-card
+              cardHeader="Qualified Employees"
+              iconName="far fa-comments"
+            >
+              <template>
+                <p>
+                  Brave is a team of designers, developers, marketing experts
+                  and managers who are ready to work on a personalized web
+                  solution.
+                </p>
+              </template>
+            </advantage-card>
+            <advantage-card
+              cardHeader="Websites"
+              iconName="far fa-window-maximize"
+            >
+              <template>
+                <p>
+                  Our expert team can design a landing page of any complexity.
+                  Everything depends on what you are looking for.
+                </p>
+              </template>
+            </advantage-card>
+            <advantage-card
+              cardHeader="Various Payment Methods"
+              iconName="far fa-credit-card"
+            >
+              <template>
+                <p>
+                  We provide a variety of payment methods that include Paypal,
+                  Visa/Mastercard/American Express and lots of others, which can
+                  be customized.
+                </p>
+              </template>
+            </advantage-card>
           </div>
         </div>
       </div>
@@ -263,8 +272,9 @@
 import axios from 'axios';
 import firebaseData from '../../firebase/firebaseLink.js';
 import HomeServiceCards from '../components/HomeComponents/HomeServiceCards.vue';
+import AdvantageCard from '../components/HomeComponents/AdvantageCard.vue';
 export default {
-  components: { HomeServiceCards },
+  components: { HomeServiceCards, AdvantageCard },
   name: 'Home',
   data() {
     return {
@@ -341,10 +351,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$pink: #ffb7c5;
-$white: #fff;
-$grey: #787878;
-
 .background {
   height: 100vh;
   position: relative;
@@ -747,7 +753,7 @@ $grey: #787878;
 
   .advantage__div {
     margin-left: 4rem;
-    width: 55%;
+    width: 60%;
     h1 {
       font-size: 4rem;
       text-transform: uppercase;
@@ -766,43 +772,6 @@ $grey: #787878;
       grid-template-columns: 1fr 1fr;
       column-gap: 5rem;
       row-gap: 5rem;
-    }
-    &--card {
-      height: 100%;
-      width: 80%;
-      border: 2px solid $pink;
-      border-top-right-radius: 70%;
-      border-bottom-left-radius: 20%;
-      padding: 2.2rem;
-      box-shadow: 3rem 3rem 2rem rgba(0, 0, 0, 0.8);
-      transition: all 0.2s ease-in-out;
-      cursor: pointer;
-
-      &:hover {
-        transform: translateY(-5px);
-      }
-
-      & hr {
-        width: 80%;
-        margin: 0 auto;
-      }
-
-      & i {
-        font-size: 4rem;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-      }
-
-      & h4 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-      }
-
-      & p {
-        font-size: 1.5rem;
-        margin-top: 1rem;
-        opacity: 0.6;
-      }
     }
   }
 
