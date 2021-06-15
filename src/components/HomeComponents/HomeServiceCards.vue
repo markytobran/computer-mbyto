@@ -16,12 +16,13 @@
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style lang="scss" scoped>
 .services {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -79,6 +80,40 @@ export default {};
       width: 80%;
       margin-top: 25px;
       text-transform: uppercase;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .services {
+    height: 110vh;
+    flex-direction: column;
+
+    &__card {
+      height: 28%;
+      width: 60%;
+      margin: 0;
+      margin-bottom: 18px;
+
+      &-maintenance {
+        height: 100px;
+        width: 100px;
+      }
+
+      &-repair {
+        height: 100px;
+        width: 100px;
+      }
+      &-landing {
+        height: 100px;
+        width: 100px;
+      }
+      & h5 {
+        font-size: 1.5rem;
+        width: 80%;
+        margin-top: 25px;
+        text-transform: uppercase;
+      }
     }
   }
 }
