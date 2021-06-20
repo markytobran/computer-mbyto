@@ -54,12 +54,12 @@
 </template>
 
 <script>
-import AdvantageCard from './AdvantageCard.vue';
+import AdvantageCard from './AdvantageCard.vue'
 export default {
   components: {
     AdvantageCard,
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>
@@ -84,6 +84,22 @@ export default {
     grid-template-columns: 1fr 1fr;
     column-gap: 5rem;
     row-gap: 5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .advantage__div {
+    width: 100%;
+    h1 {
+      margin-top: 50px;
+    }
+    &--cards {
+      display: grid;
+      margin-top: 4rem;
+      grid-template-columns: 1fr;
+      column-gap: 5rem;
+      row-gap: 5rem;
+    }
   }
 }
 </style>

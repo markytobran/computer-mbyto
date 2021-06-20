@@ -379,78 +379,6 @@ export default {
     display: flex;
     padding: 4rem;
     color: $white;
-
-    input,
-    textarea {
-      background-color: transparent;
-      border: 2px solid #787878;
-      color: $white;
-      font-weight: 500;
-      outline: none;
-
-      &:active {
-        border: 2px solid $white;
-      }
-    }
-
-    input {
-      min-height: 4rem;
-      font-size: 2rem;
-      font-weight: 400;
-    }
-
-    textarea {
-      min-height: 25rem;
-      font-size: 2.5rem;
-      font-weight: 400;
-      padding: 2px;
-    }
-
-    & label {
-      font-size: 2rem;
-      font-weight: 500;
-      text-transform: uppercase;
-    }
-
-    &--details {
-      display: flex;
-      flex-direction: row;
-    }
-
-    &--textarea {
-      display: flex;
-      flex-direction: column;
-      margin-top: 3.5rem;
-    }
-
-    &--div {
-      width: 45%;
-      margin-right: 4rem;
-
-      & h1 {
-        font-size: 4rem;
-        text-transform: uppercase;
-        margin-bottom: 3rem;
-      }
-    }
-    &--name {
-      margin-right: 5rem;
-    }
-    &--name,
-    &--email {
-      display: flex;
-      flex-direction: column;
-      width: 50%;
-      margin-bottom: 3rem;
-    }
-
-    &--button {
-      margin-top: 4rem;
-      padding: 2rem 3.5rem;
-      text-transform: uppercase;
-      color: $white;
-      outline: none;
-    }
   }
 
   .counter {
@@ -481,25 +409,44 @@ export default {
       height: 50vh;
     }
     &__problem {
-      flex: none;
+      flex: 0 0 30%;
       & strong {
         font-size: 3rem;
       }
       & h5 {
         font-size: 2rem;
-        margin-bottom: 20px;
       }
     }
     &__repair {
-      flex: none;
-      justify-content: center;
-      align-items: center;
+      flex: 0 0 50%;
       &--heading {
         font-size: 3rem;
+      }
+      &--span {
+        color: $pink;
       }
       &--p {
         font-size: 2rem;
       }
+    }
+  }
+
+  .price__container {
+    height: 220vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact {
+    height: 280vh;
+    &__container {
+      display: flex;
+      flex-direction: column;
+    }
+    &__form {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
     }
   }
 }

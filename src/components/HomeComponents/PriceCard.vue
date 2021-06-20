@@ -29,7 +29,7 @@
 <script>
 export default {
   props: ['cardHeader', 'cardDetails', 'url', 'imgName'],
-};
+}
 </script>
 
 <style lang="scss" scoped>

@@ -16,11 +16,11 @@
 
 <script>
 export default {
-methods:{
-  toTheTop(){
-    window.scrollTo(0, 0);
-  }
- }
+  methods: {
+    toTheTop() {
+      window.scrollTo(0, 0)
+    },
+  },
 }
 </script>
 
@@ -66,6 +66,26 @@ footer {
       left: 50%;
       transform: translate(-50%, -50%);
       font-size: 3rem;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .contact {
+    &__image {
+      & img {
+        width: 6rem;
+        height: 2rem;
+      }
+    }
+    &__copyright {
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+    &__button {
+      width: 6rem;
+      height: 6rem;
     }
   }
 }

@@ -95,15 +95,8 @@ export default {}
       margin: 0;
       margin-bottom: 18px;
 
-      &-maintenance {
-        height: 100px;
-        width: 100px;
-      }
-
-      &-repair {
-        height: 100px;
-        width: 100px;
-      }
+      &-maintenance,
+      &-repair,
       &-landing {
         height: 100px;
         width: 100px;

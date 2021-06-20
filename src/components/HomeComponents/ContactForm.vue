@@ -35,18 +35,14 @@ export default {
         email: '',
         message: '',
       },
-    };
+    }
   },
   methods: {},
-};
+}
 </script>
 
 <style lang="scss" scoped>
 .contact__form {
-  display: flex;
-  padding: 4rem;
-  color: $white;
-
   input,
   textarea {
     background-color: transparent;
@@ -128,6 +124,14 @@ export default {
   &:hover {
     background: #000;
     border: 2px solid #000;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .contact__form {
+    &--div {
+      width: 100%;
+    }
   }
 }
 </style>
