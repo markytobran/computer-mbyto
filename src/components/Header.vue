@@ -24,8 +24,20 @@
         </div>
         <hr />
         <div class="nav-div-bottom">
-          <router-link to="/" tag="li" :class="{active: routeName === 'Home'}">Home</router-link>
-          <router-link to="/services/maintenance" tag="li" :class="{active: routeName === 'Website' || routeName === 'Maintenance' || routeName === 'Repair'}">Services</router-link>
+          <router-link to="/" tag="li" :class="{ active: routeName === 'Home' }"
+            >Home</router-link
+          >
+          <router-link
+            to="/services/maintenance"
+            tag="li"
+            :class="{
+              active:
+                routeName === 'Website' ||
+                routeName === 'Maintenance' ||
+                routeName === 'Repair',
+            }"
+            >Services</router-link
+          >
         </div>
       </nav>
     </div>
@@ -34,36 +46,35 @@
 
 <script>
 export default {
-  name: "Header",
+  name: 'Header',
   data() {
     return {
-      window: window
-    };
-  },
-   computed:{
-    routeName(){
-      return this.$route.name;
+      window: window,
     }
+  },
+  computed: {
+    routeName() {
+      return this.$route.name
+    },
   },
   methods: {
     focusContact() {
-      const path = this.$route.path;
-      console.log(path);
-      if(path === '/'){
+      const path = this.$route.path
+      console.log(path)
+      if (path === '/') {
         window.setTimeout(function() {
-        document.getElementById("name").focus();
-       }, 0);
-      } else if (path === '/services'){
-        this.$router.push("/");
+          document.getElementById('name').focus()
+        }, 0)
+      } else if (path === '/services') {
+        this.$router.push('/')
         window.setTimeout(function() {
-        document.getElementById("name").focus();
-       }, 500);
+          document.getElementById('name').focus()
+        }, 500)
       }
-    }
-  }
-};
+    },
+  },
+}
 </script>
-
 
 <style scoped lang="scss">
 $black: #000;
@@ -99,7 +110,6 @@ hr {
     border-radius: 2rem;
     padding: 5px 2rem;
     flex-wrap: nowrap;
-    
 
     & i {
       color: $black;
@@ -189,7 +199,7 @@ hr {
     padding: 5px 1rem;
 
     &::before {
-      content: "";
+      content: '';
       top: 0;
       left: 0rem;
       height: 100%;
@@ -256,39 +266,39 @@ img {
 }
 
 @media screen and (max-width: 1250px) {
-    header{
-      height: 20vh;
-    }
-    
-    .header__up {
-      width: 85%;
+  header {
+    height: 25vh;
+  }
 
-      & div i{
-        font-size: 1.3rem;
-      }
-      & div a{
-        font-size: 1.3rem;
-      }
-    }
+  .header__up {
+    width: 85%;
 
-    .nav-div-top-logo img {
-       height: 50px;
-       width: 120px;
+    & div i {
+      font-size: 1.3rem;
     }
-
-    .nav-estimate {
-      height: 30px;
-      width: 160px;
-
-      &-link {
-        font-size: 1.3rem;
-      }
+    & div a {
+      font-size: 1.3rem;
     }
+  }
 
-    .nav-div-bottom{
-      & li{
-        font-size: 1.3rem;
-      }
+  .nav-div-top-logo img {
+    height: 50px;
+    width: 120px;
+  }
+
+  .nav-estimate {
+    height: 30px;
+    width: 160px;
+
+    &-link {
+      font-size: 1.3rem;
     }
+  }
+
+  .nav-div-bottom {
+    & li {
+      font-size: 1.3rem;
+    }
+  }
 }
 </style>

@@ -16,9 +16,7 @@
         <label>Message / comments:</label>
         <textarea v-model="user.message" maxlength="300"></textarea>
       </div>
-      <p class="counter" :class="{ show: showCounter }">
-        {{ user.message.length }}/300
-      </p>
+      <p class="counter">{{ user.message.length }}/300</p>
       <button class="contact__form--button" id="submit">
         Send Message
       </button>
@@ -37,7 +35,6 @@ export default {
       },
     }
   },
-  methods: {},
 }
 </script>
 
@@ -126,8 +123,15 @@ export default {
     border: 2px solid #000;
   }
 }
+@media screen and (max-width: 1250px) {
+  .contact__form {
+    &--div {
+      width: 100%;
+    }
+  }
+}
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   .contact__form {
     &--div {
       width: 100%;

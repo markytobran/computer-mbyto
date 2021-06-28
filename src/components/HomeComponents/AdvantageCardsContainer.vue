@@ -87,7 +87,23 @@ export default {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1250px) {
+  .advantage__div {
+    width: 100%;
+    h1 {
+      margin-top: 50px;
+    }
+    &--cards {
+      display: grid;
+      margin-top: 4rem;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 5rem;
+      row-gap: 5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
   .advantage__div {
     width: 100%;
     h1 {

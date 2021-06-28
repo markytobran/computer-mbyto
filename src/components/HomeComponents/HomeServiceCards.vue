@@ -83,8 +83,26 @@ export default {}
     }
   }
 }
+@media screen and (max-width: 1250px) {
+  .services {
+    &__card {
+      &-maintenance,
+      &-repair,
+      &-landing {
+        height: 100px;
+        width: 100px;
+      }
+      & h5 {
+        font-size: 1.5rem;
+        width: 80%;
+        margin-top: 25px;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   .services {
     height: 110vh;
     flex-direction: column;

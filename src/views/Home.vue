@@ -390,8 +390,56 @@ export default {
     opacity: 1;
   }
 }
+@media screen and (max-width: 1250px) {
+  .cleaning-background,
+  .background,
+  .background::after,
+  .background video {
+    height: 130vh;
+  }
+  .container {
+    &__div {
+      height: 50vh;
+    }
+    &__problem {
+      & strong {
+        font-size: 4rem;
+      }
+      & h5 {
+        font-size: 3rem;
+      }
+    }
+    &__repair {
+      flex: 0 0 50%;
+      &--heading {
+        font-size: 2.3rem;
+      }
+      &--p {
+        font-size: 1.7rem;
+      }
+    }
+  }
 
-@media screen and (max-width: 600px) {
+  .price__container {
+    height: 115vh;
+    display: flex;
+    padding-bottom: 80px;
+  }
+
+  .contact {
+    height: 260vh;
+    &__container {
+      display: flex;
+    }
+    &__form {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
   .cleaning-background,
   .background,
   .background::after,
@@ -421,9 +469,6 @@ export default {
       flex: 0 0 50%;
       &--heading {
         font-size: 3rem;
-      }
-      &--span {
-        color: $pink;
       }
       &--p {
         font-size: 2rem;
