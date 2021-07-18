@@ -123,7 +123,7 @@ export default {
     border: 2px solid #000;
   }
 }
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1400px) {
   .contact__form {
     &--div {
       width: 100%;

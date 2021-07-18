@@ -390,7 +390,7 @@ export default {
     opacity: 1;
   }
 }
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1400px) {
   .cleaning-background,
   .background,
   .background::after,

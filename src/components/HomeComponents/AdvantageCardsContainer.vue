@@ -87,7 +87,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1400px) {
   .advantage__div {
     width: 100%;
     h1 {

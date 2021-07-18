@@ -12,7 +12,7 @@
       <div class="details__container">
         <!-----------COMPONENTS-------------------->
 
-       <router-view></router-view>
+        <router-view></router-view>
 
         <!-----------NAVIGATION-------------------->
         <div class="navigation">
@@ -20,30 +20,29 @@
             <div>
               <h2>Solutions for you or your business</h2>
               <ul class="navigation__list">
-                <router-link 
+                <router-link
                   to="/services/maintenance"
                   tag="li"
-                  class="navigation__disc">
+                  class="navigation__disc"
+                >
                   <span class="navigation__disc-i"></span>Pc Maintenance
                 </router-link>
-                <router-link 
-                  to="/services/repair" 
+                <router-link
+                  to="/services/repair"
                   tag="li"
-                  class="navigation__disc">
+                  class="navigation__disc"
+                >
                   <span class="navigation__disc-i"></span>Pc/Laptop Repair
                 </router-link>
-                <router-link 
-                  to="/services/website" 
-                  tag="li" 
-                  class="navigation__disc">
+                <router-link
+                  to="/services/website"
+                  tag="li"
+                  class="navigation__disc"
+                >
                   <span class="navigation__disc-i"></span>Landing Pages
                 </router-link>
               </ul>
             </div>
-          </div>
-          <!-----------LOGO------------------------>
-          <div class="logo">
-            <img src="../assets/logo.png" />
           </div>
           <!----------CONTACT---------------------->
           <div class="contact">
@@ -82,63 +81,63 @@
 </template>
 
 <script>
- export default {
-   name: "Services",
-   data() {
+export default {
+  name: 'Services',
+  data() {
     return {
       result: 0,
-      selected: 0
-    };
+      selected: 0,
+    }
   },
   watch: {
     result(val) {
-      const medi = document.querySelector(".fa-laptop-medical");
-      const serv = document.querySelector(".fa-server");
-      const browser = document.querySelector(".fa-window-restore");
+      const medi = document.querySelector('.fa-laptop-medical')
+      const serv = document.querySelector('.fa-server')
+      const browser = document.querySelector('.fa-window-restore')
       if (val === 0) {
         //Comp
-        medi.classList.replace("white", "pink");
-        medi.classList.replace("grey", "pink");
+        medi.classList.replace('white', 'pink')
+        medi.classList.replace('grey', 'pink')
         //Serv
-        serv.classList.replace("white", "grey");
-        serv.classList.replace("pink", "grey");
+        serv.classList.replace('white', 'grey')
+        serv.classList.replace('pink', 'grey')
         //Browser
-        browser.classList.replace("pink", "white");
-        browser.classList.replace("grey", "white");
+        browser.classList.replace('pink', 'white')
+        browser.classList.replace('grey', 'white')
       } else if (val === 1) {
         //Comp
-        medi.classList.replace("pink", "grey");
-        medi.classList.replace("white", "grey");
+        medi.classList.replace('pink', 'grey')
+        medi.classList.replace('white', 'grey')
         //Serv
-        serv.classList.replace("pink", "white");
-        serv.classList.replace("grey", "white");
+        serv.classList.replace('pink', 'white')
+        serv.classList.replace('grey', 'white')
         //Bro
-        browser.classList.replace("white", "pink");
-        browser.classList.replace("grey", "pink");
+        browser.classList.replace('white', 'pink')
+        browser.classList.replace('grey', 'pink')
       } else if (val === 2) {
         //Comp
-        medi.classList.replace("pink", "white");
-        medi.classList.replace("grey", "white");
+        medi.classList.replace('pink', 'white')
+        medi.classList.replace('grey', 'white')
         //Serv
-        serv.classList.replace("grey", "pink");
-        serv.classList.replace("white", "pink");
+        serv.classList.replace('grey', 'pink')
+        serv.classList.replace('white', 'pink')
         //Bro
-        browser.classList.replace("pink", "grey");
-        browser.classList.replace("white", "grey");
+        browser.classList.replace('pink', 'grey')
+        browser.classList.replace('white', 'grey')
       }
-    }
+    },
   },
   methods: {
     generateNum() {
       setInterval(() => {
-        this.result = Math.floor(Math.random() * 3);
-      }, 1000);
-    }
+        this.result = Math.floor(Math.random() * 3)
+      }, 1000)
+    },
   },
   created() {
-    this.generateNum();
-  }
-};
+    this.generateNum()
+  },
+}
 </script>
 
 <style lang="scss" scoped>
@@ -208,7 +207,6 @@
 /*******Navigation *********/
 .navigation {
   display: flex;
-  position: relative;
   flex-direction: column;
   justify-content: space-between;
   padding-left: 2rem;
@@ -237,7 +235,7 @@
     padding: 0 0.5rem;
 
     &:hover &-i {
-      animation: up .8s ease-in-out;
+      animation: up 0.8s ease-in-out;
     }
 
     &-i {
@@ -253,9 +251,6 @@
 
 .contact {
   display: flex;
-  position: absolute;
-  bottom: 8%;
-  left: 100px;
 
   &__help {
     margin-right: 2rem;
@@ -361,13 +356,6 @@
   }
 }
 
-.logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-40%);
-}
-
 /***Animations ***/
 @keyframes line {
   0% {
@@ -451,8 +439,93 @@
   background: #ffb7c5;
   color: white;
 
-  & span{
+  & span {
     opacity: 0;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .details__container {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 95%;
+    position: relative;
+  }
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  .contact__free {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .contact__consul {
+    margin-top: 2rem;
+  }
+
+  .contact__mail {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 1450px) {
+  .details__container {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 95%;
+    position: relative;
+  }
+  .navigation {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  .navigation__div {
+    margin-right: 2rem;
+  }
+
+  .contact__free {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .contact__consul {
+    margin-top: 2rem;
+  }
+
+  .contact__mail {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .details__container {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 95%;
+    position: relative;
+  }
+  .navigation {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-bottom: 3rem;
+  }
+
+  .contact {
+    margin-top: 4rem;
+
+    &__free {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }
 </style>
